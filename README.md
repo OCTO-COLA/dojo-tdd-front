@@ -1,70 +1,31 @@
-# Getting Started with Create React App
+# DOJO TDD FRONT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Objectifs
 
-## Available Scripts
+Implémenter un composant `select` accessible et le faire évoluer sans risque
 
-In the project directory, you can run:
+### Exercice 1 ( 60 min)
 
-### `npm start`
+Vous arrivez sur un nouveau projet. Votre PO vous dit qu'il y a un gros soucis d'accessibilité sur le projet.
+Il vous demande de vous pencher sur le composant select et que, peut-être, avant de le rendre accessible il faudrait le tester...l'équipe avant vous n'a pas eu le temps, elle n'a posé qu'un test.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+> Commencez par poser un harnais de tests afin de pouvoir refactorer votre code sereinement.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### Exercice 2 ( 60 min)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Votre PO n'est pas très content, pour lui rien à changer. Il veut que le select soit accessible au clavier
 
-### `npm run build`
+Votre utlisateur doit pouvoir séléctionner à la souris mais aussi naviguer au clavier
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+En appuyant sur Espace la liste des options doit s'afficher
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+En appuyant sur les flèches haut et bas on doit pouvoir naviguer dans les options
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+En appuyant sur Espace ou Entrée ça sélectionne l'option ET ça referme la liste des options
 
-### `npm run eject`
+En appuyant sur Echape la liste des options se ferment
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+> Faites évoluer votre composant en TDD
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
