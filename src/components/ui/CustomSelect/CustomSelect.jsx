@@ -2,7 +2,7 @@ import { Radio } from "../Radio/Radio";
 import { useCallback, useId, useState } from "react";
 import './CustomSelect.css';
 
-export const CustomSelect = ({ value, onSelect }) => {
+export const CustomSelect = ({ value, onSelect, listOptions}) => {
   const labelledBy = useId();
   const [selectedValue, setSelectedValue] = useState(value || '');
   const [isOptionListOpen, setIsOptionListOpen] = useState(false);
@@ -10,6 +10,7 @@ export const CustomSelect = ({ value, onSelect }) => {
   const isCurrentItemSelected = useCallback((value) => {
     return selectedValue === value;
   }, [selectedValue]);
+  const unPlaceholder = 'Choisis ton type de resto !'
 
 
   return(
@@ -24,79 +25,36 @@ export const CustomSelect = ({ value, onSelect }) => {
           className="button"
           type="button"
           onClick={() => setIsOptionListOpen(!isOptionListOpen)}>
-          Choisir un restaurant
+            <span>{ unPlaceholder && getOptionLabelByValue(listOptions, selectedValue, unPlaceholder) }</span>
         <input hidden value={selectedValue} className="input" id="restaurant-select" onChange={() => ({})}/>
         </button>
       </div>
       {isOptionListOpen && (
         <ul className="options">
-          <li className="option">
-            <Radio
-              label="Français"
-              value="fr"
-              checked={isCurrentItemSelected("fr")}
-              onChange={() => {
-                setIsOptionListOpen(false);
-                setSelectedValue("fr");
-                onSelect("Français");
-              }}/>
-          </li>
-          <li className="option">
-            <Radio
-              label="Indien"
-              value="indi"
-              checked={isCurrentItemSelected("indi")}
-              onChange={() => {
-                setIsOptionListOpen(false);
-                setSelectedValue("indi");
-                onSelect("Indien");
-              }}/>
-          </li>
-          <li className="option">
-            <Radio
-              label="Japonais"
-              value="jap"
-              checked={isCurrentItemSelected("jap")}
-              onChange={() => {
-                setIsOptionListOpen(false);
-                setSelectedValue("jap");
-                onSelect("Japonais");
-              }}/>
-          </li>
-          <li className="option">
-            <Radio
-              label="Chinois"
-              value="ch"
-              checked={isCurrentItemSelected("ch")}
-              onChange={() => {
-                setIsOptionListOpen(false);
-                setSelectedValue("ch");
-                onSelect("Chinois");
-              }}/>
-          </li>
-          <li className="option">
-            <Radio
-              label="Italien"
-              value="ita"
-              checked={isCurrentItemSelected("ita")}
-              onChange={() => {
-                setIsOptionListOpen(false);
-                setSelectedValue("ita");
-                onSelect("Italien");
-              }}/>
-          </li>
-          <li className="option">
-            <Radio
-              label="Coréen"
-              value="cor"
-              checked={isCurrentItemSelected("cor")}
-              onChange={() => {
-                setIsOptionListOpen(false);
-                setSelectedValue("cor");
-                onSelect("Coréen");
-              }}/>
-          </li>
+            {
+                listOptions.map((uneOption) => (
+                    <li className="option" key={uneOption.value}>
+                        <Radio
+                            label={ uneOption.label }
+                            value={ uneOption.value }
+                            checked={ isCurrentItemSelected(uneOption.value) }
+                            onChange={ () => {
+                                setIsOptionListOpen(false);
+                                setSelectedValue(uneOption.value);
+                                onSelect(uneOption.label);
+                            }}/>
+                    </li>
+                ))
+            }
       </ul>)}
     </div>
   )
+}
+
+function getOptionLabelByValue (optionList, value, unLabelParDefaut) {
+    const filteredOption = optionList.filter((option) => option.value === value)
+    if (filteredOption.length < 1){
+        return unLabelParDefaut
+    }
+    return filteredOption[0].label
 }

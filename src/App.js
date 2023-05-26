@@ -3,6 +3,16 @@ import { useState } from "react";
 import { CustomSelect } from "./components/ui/CustomSelect/CustomSelect";
 
 function App() {
+  const listOptions = [
+    {label: 'Français', value: 'fr'},
+    {label: 'Indien', value: 'indi'},
+    {label: 'Japonais', value: 'jap'},
+    {label: 'Chinois', value: 'ch'},
+    {label: 'Italien', value: 'ita'},
+    {label: 'Coréen', value: 'cor'},
+    {label: 'Méxicain', value: 'mex'}
+  ]
+
 
   const [resto, setResto] = useState('')
 
@@ -15,7 +25,7 @@ function App() {
         <h1>
           Créer un custom composant select accessible
         </h1>
-        <CustomSelect value={resto} onSelect={(value) => setResto(value)}/>
+        <CustomSelect value={resto} onSelect={(value) => setResto(value)} listOptions={listOptions}/>
         <footer>
           <p>hint: docs utiles {' '}
             <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select"> mdn</a> {' '} et {' '}

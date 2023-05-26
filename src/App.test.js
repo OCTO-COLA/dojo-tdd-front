@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import {render, screen, within} from '@testing-library/react';
 import App from './App';
 import userEvent from "@testing-library/user-event";
 
@@ -15,4 +15,4 @@ test('shows selected restaurant after selection', async () => {
 
   const selection = screen.getByTestId('selection')
   expect(selection).toHaveTextContent('vous avez choisi: Français')
-});
+})
